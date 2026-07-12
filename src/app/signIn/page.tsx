@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react";
+
 
 export default function SignInModal ({isOpen, onClose}: {isOpen: boolean; onClose: () => void}) {
     if(!isOpen) return null;
