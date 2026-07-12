@@ -27,6 +27,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import SignInModal from "@/app/signIn/page"
+import Signup from "@/app/signUp/page"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -52,9 +53,11 @@ export default function Navbar() {
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex gap-4">
-          <button className="bg-purple-500 text-white rounded-sm py-2 px-4">
+         <Link href={"/signUp"}> <button className="bg-purple-500 text-white rounded-sm py-2 px-4">
             Sign up
           </button>
+         </Link>
+          
           <button onClick={()=> setIsOpen(true)} className="border border-purple-500 text-purple-500 rounded-sm py-2 px-4">
             Sign in
           </button>
@@ -70,6 +73,7 @@ export default function Navbar() {
           ☰
         </button>
       </div>
+      
 
       {/* Mobile Menu */}
       {isOpen && (
