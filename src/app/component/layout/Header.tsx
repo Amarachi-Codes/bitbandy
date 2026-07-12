@@ -26,6 +26,7 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
+import SignInModal from "@/app/signIn/page"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -54,9 +55,11 @@ export default function Navbar() {
           <button className="bg-purple-500 text-white rounded-sm py-2 px-4">
             Sign up
           </button>
-          <button className="border border-purple-500 text-purple-500 rounded-sm py-2 px-4">
+          <button onClick={()=> setIsOpen(true)} className="border border-purple-500 text-purple-500 rounded-sm py-2 px-4">
             Sign in
           </button>
+          <SignInModal isOpen={isOpen} 
+          onClose={() => setIsOpen(false)} />
         </div>
 
         {/* Mobile Hamburger */}
