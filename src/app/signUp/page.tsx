@@ -4,9 +4,9 @@ export default function Signup (){
      
     return(
         <>
-        <div>
-            <div>
-                <div className="left-container">
+        <div className="h-screen">
+            <div className="flex flex-row h-screen gap-8 justify-center items-center">
+                <div className="flex flex-col items-center justify-between">
                     <div className="flex items-center ">
                         <MdKeyboardArrowLeft />
                         <p>Back home</p>
@@ -34,8 +34,8 @@ export default function Signup (){
                     </div>
 
                     <div>
-                        <h2>Create your Bitbandy account</h2>
-                        <p>Tell us how you plan to use Bitbandy so we can tailor your experience</p>
+                        <h2 className="text-2xl font-semibold">Create your Bitbandy account</h2>
+                        <p className="text-gray-400">Tell us how you plan to use Bitbandy so we can tailor your experience</p>
                     </div>
                     <div>
                         <div>
@@ -52,8 +52,8 @@ export default function Signup (){
                     <button>Continue</button>
                     <p>By continuing, you agree to Bitbandy's <span>Terms of Service</span> and <span>Privacy Policy</span>.</p>
                 </div>
-                <div className="right-container">
-
+                <div className="">
+                    <img className=" bg-transparent max-h-100" src="	https://bitbandy.com/_next/image?url=%2Fimages%2Fbitbandy-signup.jpg&w=2048&q=75" alt="" />
                 </div>
             </div>
         </div>
