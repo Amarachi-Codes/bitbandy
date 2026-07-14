@@ -9,8 +9,8 @@ return (
                 {/* <FaCrown fill="#facc15" /> */}
             <p className=" text-white  ">🎉 The Complete Event Platform</p>
             </div>
-            <div className="mb-6 inline-flex items-center gap-2 max-w-4xl text-center">
-            <h1 className="mb-8 text-4xl font-bold leading-tight md:text-7xl text-white">Create Unforgettable Events in  
+            <div className=" inline-flex items-center gap-2 max-w-4xl text-center">
+            <h1 className="mb-4 text-4xl font-bold leading-tight md:text-7xl text-white">Create Unforgettable Events in  
                 <span className="text-yellow-300"> Minutes </span>
                 </h1>
                 </div>

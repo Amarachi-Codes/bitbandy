@@ -10,7 +10,7 @@ export default function Signup (){
                 <div className="flex flex-col flex-1 gap-4 bg-offwhite border border-gray-500 p-12 rounded-l-3xl h-full">
                     <div className="flex items-center ">
                         <MdKeyboardArrowLeft />
-                        <p>Back home</p>
+                        <Link href="/"><p>Back home</p></Link>
                     </div>
                     <div className="flex gap-4">
                         <div className="rounded-full bg-gray-200 w-8 h-8 flex items-center justify-center">
