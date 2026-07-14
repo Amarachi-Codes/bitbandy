@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
 export default function Signup (){
@@ -49,7 +50,7 @@ export default function Signup (){
                             <p className="text-gray-600 text-sm">Publish events, track sales and manage guests in one dashboard.</p>
                         </div>
                     </div>
-                    <button className="bg-purple-500 w-35 text-white rounded-lg p-2" >Continue</button>
+                    <Link href="/signUpForm"><button className="bg-purple-500 w-35 text-white rounded-lg p-2" >Continue</button></Link>
                     <p className="text-xs text-gray-500">
                         By continuing, you agree to Bitbandy's <span className="text-purple-500 ">Terms of Service</span> and <span className="text-purple-500">Privacy Policy</span>.
                     </p>

@@ -27,7 +27,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import SignInModal from "@/app/signIn/page"
-import Signup from "@/app/signUp/page"
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
