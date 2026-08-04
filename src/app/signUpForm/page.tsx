@@ -6,6 +6,7 @@ import SignInModal from "../signIn/page";
 import { RegisterUser } from "@/types/user";
 import { registerUser } from "@/services/userService";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function SignUpForm (){
     const [isOpen, setIsOpen] = useState(false)
@@ -16,8 +17,16 @@ export default function SignUpForm (){
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
  console.log(email, firstName, lastName, password, confirmPassword)
-
+const clearForm = ()=>{
+    setEmail('');
+    setFirstName('');
+    setLastName('');
+    setPassword('');
+    setConfirmPassword('');
+}
+const Router = useRouter();
     
 
 
@@ -25,6 +34,8 @@ export default function SignUpForm (){
     
 const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setErrorMessage('');
+        setSuccessMessage('');
     
     if (password !== confirmPassword) {
         alert("Passwords do not match");
@@ -39,11 +50,16 @@ const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     }
 
     try{
+        setIsLoading(true);
       const response =  await registerUser(user);
       setSuccessMessage(
         response.message || "User registered successfully!"
     );
       console.log("User registered successfully:", response);
+      clearForm();
+      setTimeout(() => {
+        Router.push("/")
+      }, 2000);
     }
     catch(error){
         if(axios.isAxiosError(error)&& error.response){
@@ -51,11 +67,15 @@ const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
                 error.response?.data?.message ??
              "An error occurred during registration."
             );
+        }else{
+            setErrorMessage("Something went wrong.");
         }
         console.error("Error registering user:", error);
-        throw error;
+        
     }
-
+    finally{
+        setIsLoading(false);
+    }
     }
     return(
         <>
@@ -140,7 +160,14 @@ const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
                                     )
                                 }
 
-                            <button type="submit" className="bg-purple-500 w-full text-white rounded-lg p-2">Register now</button>
+                            <button type="submit" className="bg-purple-500 w-full text-white rounded-lg p-2">
+                                {isLoading ? (
+                                            <>
+                                            <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                                            Logging In...
+                                            </>):("Register Now")}
+                                
+                                </button>
                             </form>
                             <div className="text-center">
                                 <p>Already have an account? <span onClick={()=> setIsOpen(true)} className="text-purple-500 cursor-pointer">Sign in</span></p>
